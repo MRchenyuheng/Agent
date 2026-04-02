@@ -59,8 +59,9 @@ class JSONMemoryBank:
         formatted_time = time.strftime("%Y-%m-%d %H:%M:%S", time.localtime(timestamp))
 
         # 2. 生成向量 (调用你的 Embedding 模型)
+        # --- 这里已修正为 get_emb ---
         print(f"[Memory] 正在向量化记忆...")
-        vector = self.emb.embed(text)
+        vector = self.emb.get_emb(text) 
 
         # 3. 构建记忆对象
         memory_item = {
